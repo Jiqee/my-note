@@ -1,0 +1,8 @@
+retrofit官方网站：http://square.github.io/retrofit/
+1、将网络HTTP请求转换为java的接口
+public interface GitHubService {
+  @GET("users/{user}/repos")
+  Call<List<Repo>> listRepos(@Path("user") String user);
+}
+
+2、
