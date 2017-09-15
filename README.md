@@ -1,7 +1,4 @@
 # my-note
-study hot knowledge
+工作之余进行总结
+1、内存泄露相关内容总结
 
-study plan:
-一、网络框架
-1、retrofit
-2、okhttp
