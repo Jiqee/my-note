@@ -17,5 +17,5 @@
     5、懒加载View 标记---viewstub
     ViewStub是一个轻量级的view，没有占有空间，没有花费draw的资源，也没有参与在任何一个layout的计算与绘制里面。创建它仅需要很少的系统资源，而且存留在View的层级也是个比较不花费资源的动作。每一个ViewStub简单的包含一个android:layout的属性来指定待创建的布局文件。载用方式：setVisibility(View.VISIBLE) 或者是调用 inflate()。
     
-    6、针对listview来说，用viewholder设计模式可以有效减少频繁地findbyId操作，设置tag标记，方便查询。
+    6、针对listview来说，用viewholder设计模式可以有效减少频繁地findbyId操作，设置tag标记，方便查询。 
     
