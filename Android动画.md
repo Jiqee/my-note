@@ -100,4 +100,41 @@ title:Android动画
 					alpha.setDuration(long duration);
 
 	3、属性动画
-	
+		(1) 一个基类，两个子类，其中一个子类又有两个次级子类，可能统共4个类需要了解，如下：
+			Animator --> AnimatorSet
+			         --> ValueAnimator --> ObjectAnimator
+					              	   --> TimeAnimator
+
+		(2) AnimatorSet 
+			类似于一个动画结合，统筹一系列动画的执行。常见的写法：
+			AnimatorSet bouncer = new AnimatorSet();
+			bouncer.play(anim1).before(anim2);
+			bouncer.play(anim1).with(anim3);
+			bouncer.play(anim1).with(anim4);
+			bouncer.play(anim1).after(anim5);
+			bouncer.start();
+			注：animX指代各种属性动画的对象
+
+		(3) ValueAnimator
+			两个缺省值，Interpolator和TypeEvaluator,其他方法如：
+				ofArgb(int... values) ---设置颜色变化范围值
+				ofFloat(float... values) ---设置float类型的范围变化值
+				ofInt(int... values) ---设置int类型的范围变化值
+				ofObject(TypeEvaluator evaluator,Object... values) ---设置Object类型的范围变化值
+
+			例如下面的使用方法：
+				ValueAnimator mAnimator = ValueAnimator.ofInt(100, 0);
+				mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+					@Override
+					public void onAnimationUpdate(ValueAnimator updateAnimation){
+						view.doXXX();
+					}
+				});
+				mAnimator.setDuration(6000);
+				mAnimator.setTarget(view);
+				mAnimator.start();
+		(4) ObjectAnimator
+			类似于ValueAnimator;
+			ObjectAnimator animator = ObjectAnimator.ofFloat(view,"translationX",100f);
+			animator.setDuration(100);
+			animator.start();
