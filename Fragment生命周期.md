@@ -11,7 +11,7 @@ title:Fragment生命周期
 	👇
 	onCreateView(LayoutInflater, ViewGroup, Bundle) --初始化布局组件
 	👇
-	onActivityCreated(Bundle) --知会Activity已完成哦那Create()操作
+	onActivityCreated(Bundle) --知会Activity已完成Create()操作
 	👇
 	onViewStateRestored(Bundle) --保存视图状态
 	👇
