@@ -1,7 +1,7 @@
-一、内存泄露的产生原因：
+### 一、内存泄露的产生原因：
     在Android程序开发中，当一个对象已经不需要再使用了，本该被回收时，而另外一个正在使用的对象持有它的引用从而导致它不能被回收，这就导致本该被回收的对象不能被回收而停留在堆内存中，内存泄漏就产生了。
 
-二、java 引用的分类：
+### 二、java 引用的分类：
     分为4种：强引用、软引用、弱引用和虚引用。java jdk提供了三个专门的类，分别对应关系是：SoftReference---软引用；WeakReference---弱引用；PhantomReference---虚引用。
     1、强引用-----Strong reference：
     形式如同：A a = new A()这种；
@@ -24,7 +24,7 @@
     (2).不管有无强引用指向PhantomReference的指示对象，PhantomReference的get()方法返回结果都是null。
     与WeakReference相同，PhantomReference并不会改变其指示对象的垃圾回收时机。且可以总结出：ReferenceQueue的作用主要是用于监听SoftReference/WeakReference/PhantomReference的指示对象是否已经被垃圾回收。
     
-三、常见内存泄露情况：
+### 三、常见内存泄露情况：
     1、不规范的单例
     单例是我们在平时做开发的时候经常用的设计模式，但其静态特性会导致其单例对象的生命周期和应用的生命周期一样长，用到Context这个属性时尤其需要注意。context有两种类型：activity的context(这个context跟当前acitvity是关联的)和application的context(该context属于全局的，只跟应用本身关联)。如果单例对象传入的是activity的context,在该activity退出时，而当前单例还在使用的情况，当前单例对象里面的context持有已退出的activity引用，会导致activity内存无法回收。如果需要传入context，最好传入application里面的context对象。
     2、非静态的内部类创建静态实例
